@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "common": ["eventId", "eventType", "occurredAt", "ingestedAt", "sourceSystem", "correlationId"],
+  "events": {
+    "payment.received": ["accountId", "amount", "currency", "idempotencyKey"],
+    "payment.reversed": ["paymentId", "reason"],
+    "promise.created": ["accountId", "dueDate", "amount", "currency"],
+    "promise.updated": ["promiseId", "status"],
+    "call.completed": ["accountId", "transcriptId", "language"],
+    "hardship.flagged": ["accountId", "caseId"],
+    "dispute.opened": ["accountId", "disputeId"],
+    "identity.match.proposed": ["sourceRecordId", "candidateCustomerId", "evidence"],
+    "decision.created": ["recommendationId", "featureVersion", "modelVersion"],
+    "decision.approved": ["recommendationId", "recommendationVersion"],
+    "decision.overridden": ["recommendationId", "reason"],
+    "action.completed": ["recommendationId", "actionId", "simulated"]
+  },
+  "privacy": "Use protected-record references rather than unnecessary sensitive payloads."
+}

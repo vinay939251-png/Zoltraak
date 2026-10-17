@@ -1,0 +1,12 @@
+{
+  "name": "agentic-collections-copilot-local",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Synthetic local demonstration of an evidence-grounded collections decision-support platform",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/core.test.js"
+  },
+  "engines": { "node": ">=18" }
+}

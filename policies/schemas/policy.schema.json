@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Demonstration policy document",
+  "type": "object",
+  "required": ["id", "version", "effectiveDate", "status", "title", "chunks"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "effectiveDate": { "type": "string", "format": "date" },
+    "status": { "enum": ["ACTIVE_DEMO", "SUPERSEDED_DEMO", "DRAFT_DEMO"] },
+    "title": { "type": "string" },
+    "chunks": { "type": "array", "items": { "type": "object", "required": ["id", "text", "topic"], "properties": { "id": { "type": "string" }, "text": { "type": "string" }, "topic": { "type": "string" } } } }
+  }
+}

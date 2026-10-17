@@ -1,0 +1,566 @@
+{
+  "meta": {
+    "environment": "DEMO",
+    "simulation": true,
+    "snapshotDate": "2026-09-28",
+    "dataset": "Synthetic Maple Bank local fixture",
+    "version": "demo-0.1"
+  },
+  "users": [
+    {
+      "id": "agent-001",
+      "name": "Maya Chen",
+      "role": "collections_agent",
+      "assignedAccountIds": [
+        "acct-1001",
+        "acct-1002",
+        "acct-1004"
+      ]
+    },
+    {
+      "id": "lead-001",
+      "name": "Jordan Ellis",
+      "role": "team_lead",
+      "assignedAccountIds": [
+        "acct-1001",
+        "acct-1002",
+        "acct-1003",
+        "acct-1004",
+        "acct-1005"
+      ]
+    },
+    {
+      "id": "steward-001",
+      "name": "Priya Shah",
+      "role": "data_steward",
+      "assignedAccountIds": []
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust-001",
+      "name": "Avery Morgan",
+      "email": "avery.morgan@example.test",
+      "phone": "+1 416 555 0101",
+      "riskNote": "Synthetic customer; do not infer protected attributes",
+      "identities": [
+        {
+          "source": "crm",
+          "sourceId": "CRM-00041",
+          "matchType": "exact",
+          "evidence": [
+            "normalized_email",
+            "normalized_phone"
+          ]
+        }
+      ],
+      "lineage": {
+        "sourceSystem": "golden-customer",
+        "sourceRecordId": "GOLD-001",
+        "observedAt": "2026-09-28T09:00:00Z",
+        "ingestedAt": "2026-09-28T09:05:00Z",
+        "transformationVersion": "golden-v1"
+      }
+    },
+    {
+      "id": "cust-002",
+      "name": "Noah Laurent",
+      "email": "noah.laurent@example.test",
+      "phone": "+1 514 555 0102",
+      "riskNote": "Synthetic customer; transcript contains French evidence",
+      "identities": [
+        {
+          "source": "crm",
+          "sourceId": "CRM-00057",
+          "matchType": "probabilistic",
+          "score": 0.91,
+          "evidence": [
+            "name_similarity",
+            "address_similarity"
+          ]
+        }
+      ],
+      "lineage": {
+        "sourceSystem": "golden-customer",
+        "sourceRecordId": "GOLD-002",
+        "observedAt": "2026-09-28T09:00:00Z",
+        "ingestedAt": "2026-09-28T09:05:00Z",
+        "transformationVersion": "golden-v1"
+      }
+    },
+    {
+      "id": "cust-003",
+      "name": "Riley Singh",
+      "email": "riley.singh@example.test",
+      "phone": "+1 604 555 0103",
+      "riskNote": "Synthetic customer; hardship routing required",
+      "identities": [
+        {
+          "source": "cards",
+          "sourceId": "CARD-CUST-884",
+          "matchType": "exact",
+          "evidence": [
+            "account_reference"
+          ]
+        }
+      ],
+      "lineage": {
+        "sourceSystem": "golden-customer",
+        "sourceRecordId": "GOLD-003",
+        "observedAt": "2026-09-28T09:00:00Z",
+        "ingestedAt": "2026-09-28T09:05:00Z",
+        "transformationVersion": "golden-v1"
+      }
+    },
+    {
+      "id": "cust-004",
+      "name": "Taylor Brooks",
+      "email": "taylor.brooks@example.test",
+      "phone": "+1 403 555 0104",
+      "riskNote": "Synthetic customer; dispute and DNC controls apply",
+      "identities": [
+        {
+          "source": "loan",
+          "sourceId": "LN-CUST-221",
+          "matchType": "exact",
+          "evidence": [
+            "normalized_email"
+          ]
+        }
+      ],
+      "lineage": {
+        "sourceSystem": "golden-customer",
+        "sourceRecordId": "GOLD-004",
+        "observedAt": "2026-09-28T09:00:00Z",
+        "ingestedAt": "2026-09-28T09:05:00Z",
+        "transformationVersion": "golden-v1"
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "id": "acct-1001",
+      "customerId": "cust-001",
+      "product": "Personal loan",
+      "status": "ACTIVE",
+      "balance": 12450.75,
+      "overdueBalance": 845.2,
+      "dpd": 18,
+      "hardship": false,
+      "dispute": false,
+      "dnc": false,
+      "contactCount7d": 1,
+      "ptp": {
+        "dueDate": "2026-09-30",
+        "amount": 300,
+        "status": "PENDING"
+      },
+      "features": {
+        "recentPaymentCount": 3,
+        "recentPaymentAmount": 620,
+        "historicalPtpAdherence": 0.82,
+        "daysSinceLastPayment": 11
+      },
+      "recommendationId": "rec-1001",
+      "lineage": {
+        "sourceSystem": "loan-servicing",
+        "sourceRecordId": "LN-1001",
+        "observedAt": "2026-09-28T08:45:00Z",
+        "ingestedAt": "2026-09-28T08:50:00Z",
+        "transformationVersion": "silver-v2"
+      }
+    },
+    {
+      "id": "acct-1002",
+      "customerId": "cust-001",
+      "product": "Credit card",
+      "status": "ACTIVE",
+      "balance": 4210.33,
+      "overdueBalance": 0,
+      "dpd": 0,
+      "hardship": false,
+      "dispute": false,
+      "dnc": false,
+      "contactCount7d": 0,
+      "ptp": null,
+      "features": {
+        "recentPaymentCount": 2,
+        "recentPaymentAmount": 910,
+        "historicalPtpAdherence": 0.94,
+        "daysSinceLastPayment": 5
+      },
+      "recommendationId": null,
+      "lineage": {
+        "sourceSystem": "card-ledger",
+        "sourceRecordId": "CARD-1002",
+        "observedAt": "2026-09-28T08:40:00Z",
+        "ingestedAt": "2026-09-28T08:49:00Z",
+        "transformationVersion": "silver-v2"
+      }
+    },
+    {
+      "id": "acct-1003",
+      "customerId": "cust-002",
+      "product": "Personal loan",
+      "status": "ACTIVE",
+      "balance": 18900,
+      "overdueBalance": 1340,
+      "dpd": 42,
+      "hardship": false,
+      "dispute": false,
+      "dnc": false,
+      "contactCount7d": 3,
+      "ptp": {
+        "dueDate": "2026-09-29",
+        "amount": 500,
+        "status": "BROKEN"
+      },
+      "features": {
+        "recentPaymentCount": 1,
+        "recentPaymentAmount": 100,
+        "historicalPtpAdherence": 0.38,
+        "daysSinceLastPayment": 37
+      },
+      "recommendationId": "rec-1003",
+      "lineage": {
+        "sourceSystem": "loan-servicing",
+        "sourceRecordId": "LN-1003",
+        "observedAt": "2026-09-28T08:45:00Z",
+        "ingestedAt": "2026-09-28T08:50:00Z",
+        "transformationVersion": "silver-v2"
+      }
+    },
+    {
+      "id": "acct-1004",
+      "customerId": "cust-003",
+      "product": "Credit card",
+      "status": "ACTIVE",
+      "balance": 7500.12,
+      "overdueBalance": 2220.12,
+      "dpd": 61,
+      "hardship": true,
+      "dispute": false,
+      "dnc": false,
+      "contactCount7d": 1,
+      "ptp": {
+        "dueDate": "2026-10-02",
+        "amount": 200,
+        "status": "PENDING"
+      },
+      "features": {
+        "recentPaymentCount": 0,
+        "recentPaymentAmount": 0,
+        "historicalPtpAdherence": 0.6,
+        "daysSinceLastPayment": 68
+      },
+      "recommendationId": "rec-1004",
+      "lineage": {
+        "sourceSystem": "card-ledger",
+        "sourceRecordId": "CARD-1004",
+        "observedAt": "2026-09-28T08:40:00Z",
+        "ingestedAt": "2026-09-28T08:49:00Z",
+        "transformationVersion": "silver-v2"
+      }
+    },
+    {
+      "id": "acct-1005",
+      "customerId": "cust-004",
+      "product": "Personal loan",
+      "status": "ACTIVE",
+      "balance": 9900.1,
+      "overdueBalance": 980.1,
+      "dpd": 25,
+      "hardship": false,
+      "dispute": true,
+      "dnc": true,
+      "contactCount7d": 5,
+      "ptp": null,
+      "features": {
+        "recentPaymentCount": 1,
+        "recentPaymentAmount": 200,
+        "historicalPtpAdherence": 0.7,
+        "daysSinceLastPayment": 26
+      },
+      "recommendationId": "rec-1005",
+      "lineage": {
+        "sourceSystem": "loan-servicing",
+        "sourceRecordId": "LN-1005",
+        "observedAt": "2026-09-28T08:45:00Z",
+        "ingestedAt": "2026-09-28T08:50:00Z",
+        "transformationVersion": "silver-v2"
+      }
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay-1",
+      "accountId": "acct-1001",
+      "amount": 320,
+      "status": "RECONCILED",
+      "date": "2026-09-17",
+      "sourceSystem": "payment-ledger"
+    },
+    {
+      "id": "pay-2",
+      "accountId": "acct-1001",
+      "amount": 300,
+      "status": "RECONCILED",
+      "date": "2026-09-02",
+      "sourceSystem": "payment-ledger"
+    },
+    {
+      "id": "pay-3",
+      "accountId": "acct-1003",
+      "amount": 100,
+      "status": "RECONCILED",
+      "date": "2026-08-22",
+      "sourceSystem": "payment-ledger"
+    },
+    {
+      "id": "pay-4",
+      "accountId": "acct-1004",
+      "amount": 0,
+      "status": "REVERSED",
+      "date": "2026-09-01",
+      "sourceSystem": "payment-ledger"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "contact-1",
+      "accountId": "acct-1001",
+      "date": "2026-09-27",
+      "channel": "phone",
+      "outcome": "callback_requested",
+      "sourceSystem": "collections"
+    },
+    {
+      "id": "contact-2",
+      "accountId": "acct-1003",
+      "date": "2026-09-27",
+      "channel": "phone",
+      "outcome": "no_answer",
+      "sourceSystem": "collections"
+    },
+    {
+      "id": "contact-3",
+      "accountId": "acct-1004",
+      "date": "2026-09-26",
+      "channel": "email",
+      "outcome": "hardship_disclosed",
+      "sourceSystem": "collections"
+    },
+    {
+      "id": "contact-4",
+      "accountId": "acct-1005",
+      "date": "2026-09-25",
+      "channel": "phone",
+      "outcome": "dnc_requested",
+      "sourceSystem": "collections"
+    }
+  ],
+  "transcripts": [
+    {
+      "id": "call-1",
+      "accountId": "acct-1001",
+      "language": "en",
+      "text": "Customer said salary arrives Friday and asked for a callback after the deposit.",
+      "signals": [
+        {
+          "type": "promise_intent",
+          "value": true,
+          "confidence": 0.88,
+          "status": "candidate"
+        }
+      ]
+    },
+    {
+      "id": "call-2",
+      "accountId": "acct-1003",
+      "language": "fr",
+      "text": "Le client a indiqué une difficulté temporaire et souhaite discuter d'une date de paiement.",
+      "signals": [
+        {
+          "type": "hardship_mentioned",
+          "value": true,
+          "confidence": 0.81,
+          "status": "candidate"
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "POL-DEMO-001",
+      "version": "2026.09",
+      "status": "ACTIVE_DEMO",
+      "effectiveDate": "2026-09-01",
+      "title": "Demonstration contact restrictions",
+      "chunks": [
+        {
+          "id": "POL-DEMO-001#chunk-01",
+          "text": "Do not initiate an outbound contact when a verified do-not-contact restriction is active.",
+          "topic": "DNC"
+        },
+        {
+          "id": "POL-DEMO-001#chunk-02",
+          "text": "When an open dispute affects the balance, route the account for specialist review before collection action.",
+          "topic": "DISPUTE"
+        }
+      ]
+    },
+    {
+      "id": "POL-DEMO-002",
+      "version": "2026.08",
+      "status": "SUPERSEDED_DEMO",
+      "effectiveDate": "2026-08-01",
+      "title": "Superseded demonstration hardship guidance",
+      "chunks": [
+        {
+          "id": "POL-DEMO-002#chunk-01",
+          "text": "Hardship disclosures require specialist review before an ordinary collection action.",
+          "topic": "HARDSHIP"
+        }
+      ]
+    }
+  ],
+  "identityReviews": [
+    {
+      "id": "match-002",
+      "customerId": "cust-002",
+      "sourceSystem": "crm",
+      "sourceRecordId": "CRM-00057B",
+      "score": 0.91,
+      "status": "PENDING",
+      "evidence": [
+        "name_similarity",
+        "address_similarity"
+      ],
+      "conflicts": []
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-1001",
+      "accountId": "acct-1001",
+      "version": 1,
+      "status": "PENDING_REVIEW",
+      "target": "30-day cure demonstration",
+      "score": 74,
+      "modelVersion": "demo-untrained-v1",
+      "predictionTimestamp": "2026-09-28T09:10:00Z",
+      "action": "outbound_call",
+      "topFeatures": [
+        {
+          "name": "historical_ptp_adherence",
+          "contribution": 0.18
+        },
+        {
+          "name": "overdue_balance",
+          "contribution": -0.11
+        },
+        {
+          "name": "recent_payment_count",
+          "contribution": 0.09
+        }
+      ],
+      "reviewReason": null
+    },
+    {
+      "id": "rec-1003",
+      "accountId": "acct-1003",
+      "version": 1,
+      "status": "PENDING_REVIEW",
+      "target": "30-day cure demonstration",
+      "score": 31,
+      "modelVersion": "demo-untrained-v1",
+      "predictionTimestamp": "2026-09-28T09:10:00Z",
+      "action": "outbound_call",
+      "topFeatures": [
+        {
+          "name": "days_past_due",
+          "contribution": -0.35
+        },
+        {
+          "name": "historical_ptp_adherence",
+          "contribution": -0.22
+        },
+        {
+          "name": "contact_count_in_window",
+          "contribution": -0.14
+        }
+      ],
+      "reviewReason": null
+    },
+    {
+      "id": "rec-1004",
+      "accountId": "acct-1004",
+      "version": 1,
+      "status": "ESCALATED",
+      "target": "30-day cure demonstration",
+      "score": 22,
+      "modelVersion": "demo-untrained-v1",
+      "predictionTimestamp": "2026-09-28T09:10:00Z",
+      "action": "specialist_review",
+      "topFeatures": [
+        {
+          "name": "hardship_review_required",
+          "contribution": 0.42
+        },
+        {
+          "name": "days_past_due",
+          "contribution": -0.29
+        }
+      ],
+      "reviewReason": "Hardship specialist routing required"
+    },
+    {
+      "id": "rec-1005",
+      "accountId": "acct-1005",
+      "version": 1,
+      "status": "PENDING_REVIEW",
+      "target": "30-day cure demonstration",
+      "score": 48,
+      "modelVersion": "demo-untrained-v1",
+      "predictionTimestamp": "2026-09-28T09:10:00Z",
+      "action": "outbound_call",
+      "topFeatures": [
+        {
+          "name": "dnc_restriction",
+          "contribution": -0.4
+        },
+        {
+          "name": "dispute_open",
+          "contribution": -0.25
+        }
+      ],
+      "reviewReason": null
+    }
+  ],
+  "audit": [
+    {
+      "id": "audit-f0ee5a7d",
+      "type": "COPILOT_QUERY",
+      "actor": "agent-001",
+      "entityId": "cust-001",
+      "timestamp": "2026-10-16T22:42:09.820Z",
+      "summary": "Copilot classified request as refusal."
+    },
+    {
+      "id": "audit-9f8e0c0a",
+      "type": "SECURITY_REFUSAL",
+      "actor": "agent-001",
+      "entityId": "cust-001",
+      "timestamp": "2026-10-16T22:42:09.817Z",
+      "summary": "Protected-attribute inference request refused."
+    },
+    {
+      "id": "audit-1",
+      "type": "SEED_CREATED",
+      "actor": "system",
+      "entityId": "demo",
+      "timestamp": "2026-09-28T09:00:00Z",
+      "summary": "Deterministic synthetic demonstration state initialized."
+    }
+  ]
+}

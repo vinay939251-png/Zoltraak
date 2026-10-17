@@ -1,0 +1,47 @@
+
+
+m
+
+account_id;Primary account identifier across loan servicing and cards."
+account_idJzoltraak_feature_store
+°›ËÖĞâŸ›°›ËÖĞâŸ›
+M
+-
+__dummy"
+__dummy_idJzoltraak_feature_store
+°›ËÖĞâŸ›°›ËÖĞâŸ›1"$f4b278b1-2e47-406c-bd59-8d269cf45a58*°›ËÖ×Ä2€
+¿
+account_cure_featureszoltraak_feature_store
+account_id"6
+overdue_balance"!Current delinquent balance amount"
+dpd"Days Past Due"=
+contact_count_7d"'Outbound contacts within rolling 7 days"=
+balance_overdue_ratio""Overdue balance over total balance"6
+has_hardship"$Customer enrolled in hardship relief".
+has_dispute"Formal account dispute active*
+teamcollections_ml*
+tiergolden2€š:event_timestamp*created_timestampZgeC:\Users\vinay\OneDrive\Desktop\Zoltraak\data_platform\feast_store\data\account_cure_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢account_cure_features_source’°›ËÖØû›"°›ËÖğßÚ™@b
+
+account_id’latest<
+°›ËÖĞŸâš°›ËÖ×Ä
+°ÕÀÖàØÈ¥°›ËÖàØÈ¥0bševent_timestamp*created_timestampZgeC:\Users\vinay\OneDrive\Desktop\Zoltraak\data_platform\feast_store\data\account_cure_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢account_cure_features_sourceªzoltraak_feature_store’°›ËÖØû›"°›ËÖğßÚ™z>
+zoltraak_feature_store$579f57b3-12d7-4ca4-a1b4-98c3910eda76Š8
+
+zoltraak_feature_store
+°›ËÖğßÚ™°›ËÖğßÚ™’×
+Ô
+account_cure_featureszoltraak_feature_store"feature_view*à
+¿
+account_cure_featureszoltraak_feature_store
+account_id"6
+overdue_balance"!Current delinquent balance amount"
+dpd"Days Past Due"=
+contact_count_7d"'Outbound contacts within rolling 7 days"=
+balance_overdue_ratio""Overdue balance over total balance"6
+has_hardship"$Customer enrolled in hardship relief".
+has_dispute"Formal account dispute active*
+teamcollections_ml*
+tiergolden2€š:event_timestamp*created_timestampZgeC:\Users\vinay\OneDrive\Desktop\Zoltraak\data_platform\feast_store\data\account_cure_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢account_cure_features_source’°›ËÖØû›"°›ËÖğßÚ™@b
+
+account_id’latest
+°›ËÖĞŸâš°›ËÖĞŸâš2°›ËÖĞâŸ›B$def41aac-30f8-42f2-a538-832b74c215d1
