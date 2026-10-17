@@ -1,10 +1,10 @@
 {
-  "job_id": "spark-job-1792200090",
+  "job_id": "spark-job-1792217021",
   "job_name": "CollectionsLakehouseBatchTransform",
   "status": "COMPLETED",
-  "executed_at": "2026-10-17T01:21:30.156859+00:00",
+  "executed_at": "2026-10-17T06:03:41.400033+00:00",
   "partition_date": "2026-10-17",
-  "duration_ms": 33,
+  "duration_ms": 63,
   "zones": {
     "raw": {
       "records_ingested": 5,

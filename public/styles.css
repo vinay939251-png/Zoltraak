@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
   --navy: #5a1f2b;
@@ -969,7 +969,7 @@ pre { margin: 0; color: var(--accent-primary); }
 
 
 
-/* Final Zolt interaction pass — restrained, consistent, and theme-aware */
+/* Final Zolt interaction pass â€” restrained, consistent, and theme-aware */
 :where(button,[role="button"],input,select,textarea):focus-visible { outline: 2px solid #c96570; outline-offset: 3px; }
 
 /* Navigation: editorial red reveal, no generic floating motion */
@@ -1029,3 +1029,4 @@ pre { margin: 0; color: var(--accent-primary); }
   .zolt-mark:hover { transform: none; }
   .zolt-mark:hover .zolt-fox-spray,.zolt-mark:hover .zolt-fox-head,.zolt-mark:hover .zolt-fox-face,.zolt-mark:hover .zolt-fox-ear { animation: none; }
 }
+

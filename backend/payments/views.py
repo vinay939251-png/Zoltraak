@@ -29,6 +29,12 @@ class PaymentViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         payment = serializer.save()
 
+        try:
+            from data_platform.django_integration import publish_payment_event
+            publish_payment_event(payment)
+        except Exception:
+            pass
+
         log_audit(
             'PAYMENT_INGESTED',
             payment.id,
@@ -36,6 +42,12 @@ class PaymentViewSet(viewsets.ModelViewSet):
             actor=request.user,
             details={'amount': float(payment.amount), 'source_system': payment.source_system, 'status': payment.status}
         )
+
+        try:
+            from data_platform.django_integration import publish_payment_event
+            publish_payment_event(payment)
+        except Exception:
+            pass
 
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)

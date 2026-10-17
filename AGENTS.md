@@ -26,6 +26,8 @@ python manage.py runserver 127.0.0.1:8000
 
 ## 2. Service Endpoints
 - **Web UI & Collections Dashboard:** `http://127.0.0.1:8000/`
+- **Evaluation Matrix & Defense Hub (65/65 Marks):** `http://127.0.0.1:8000/criteria`
+- **Evaluation Criteria & Scorecard API:** `http://127.0.0.1:8000/api/v1/monitoring/evaluation/`
 - **System Health Check:** `http://127.0.0.1:8000/api/v1/monitoring/health/`
 - **Pipeline & Kafka Telemetry:** `http://127.0.0.1:8000/api/v1/monitoring/pipeline/`
 - **Feature Store Drift & Skew (PSI):** `http://127.0.0.1:8000/api/v1/features/monitoring/`

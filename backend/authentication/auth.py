@@ -18,7 +18,7 @@ class DemoHeaderAuthentication(authentication.BaseAuthentication):
     def authenticate(self, request):
         actor_id = request.headers.get('X-Actor-User-Id')
         role_header = request.headers.get('X-Demo-Role')
-        session_user_id = request.session.get('demo_user_id')
+        session_user_id = request.session.get('demo_user_id') if hasattr(request, 'session') else None
 
         user = None
 

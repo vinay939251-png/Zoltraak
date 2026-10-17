@@ -24,7 +24,7 @@ from approvals.views import ApprovalViewSet
 from assignments.views import QueueAssignmentViewSet, AgentProfileViewSet, ReassignView, OptimizeQueueView
 from audit.views import AuditEventViewSet
 from experiments.views import ExperimentViewSet
-from config.monitoring_views import SystemHealthView, PipelineStatusView, DataQualityView
+from config.monitoring_views import SystemHealthView, PipelineStatusView, DataQualityView, EvaluationCriteriaView
 import os
 from django.conf import settings
 from django.http import HttpResponse, FileResponse
@@ -104,6 +104,7 @@ urlpatterns = [
     path('api/v1/monitoring/health/', SystemHealthView.as_view(), name='monitoring-health'),
     path('api/v1/monitoring/pipeline/', PipelineStatusView.as_view(), name='monitoring-pipeline'),
     path('api/v1/monitoring/quality/', DataQualityView.as_view(), name='monitoring-quality'),
+    path('api/v1/monitoring/evaluation/', EvaluationCriteriaView.as_view(), name='monitoring-evaluation'),
 
     # DRF Router endpoints
     path('api/v1/', include(router.urls)),

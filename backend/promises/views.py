@@ -15,6 +15,12 @@ class PromiseToPayViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         ptp = serializer.save()
+        try:
+            from data_platform.django_integration import publish_promise_event
+            publish_promise_event(ptp)
+        except Exception:
+            pass
+
         log_audit(
             'SEED_CREATED',
             ptp.id,

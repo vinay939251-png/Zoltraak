@@ -117,6 +117,12 @@ class IngestRawDataView(APIView):
                     date=timezone.now().date(),
                     source_system=rec.get('source_system', 'Automated-Clearing-Ingest')
                 )
+                try:
+                    from data_platform.django_integration import publish_payment_event
+                    publish_payment_event(pay)
+                except Exception:
+                    pass
+
                 # Deduct balance & overdue balance
                 primary_account.overdue_balance = max(Decimal('0.00'), primary_account.overdue_balance - dec_amount)
                 primary_account.balance = max(Decimal('0.00'), primary_account.balance - dec_amount)
@@ -145,6 +151,11 @@ class IngestRawDataView(APIView):
                     status=PromiseToPay.Status.PENDING,
                     source_system='Raw-Ingest-Stream'
                 )
+                try:
+                    from data_platform.django_integration import publish_promise_event
+                    publish_promise_event(ptp)
+                except Exception:
+                    pass
                 domains_affected.append(f"PTP: Logged commitment of {ptp_amt} CAD due {due_dt}")
 
             # 3. Outreach / Contact domain

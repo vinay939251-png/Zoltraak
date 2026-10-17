@@ -1,0 +1,25 @@
+{
+  "job_id": "spark-job-1792217021",
+  "job_name": "CollectionsLakehouseBatchTransform",
+  "status": "COMPLETED",
+  "executed_at": "2026-10-17T06:03:41.400033+00:00",
+  "partition_date": "2026-10-17",
+  "duration_ms": 63,
+  "zones": {
+    "raw": {
+      "records_ingested": 5,
+      "sources": [
+        "loan-servicing",
+        "credit-card"
+      ]
+    },
+    "silver": {
+      "cleansed_records": 5,
+      "dlq_records": 0
+    },
+    "golden": {
+      "customer_360_records": 4,
+      "features_derived": 5
+    }
+  }
+}
